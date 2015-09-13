@@ -51,7 +51,7 @@ public class CommentController {
 	* @date 2015年7月23日 上午11:37:28 
 	* @param map
 	* @return
-	 */
+     */
 	@RequestMapping(value="/list")
 	@ResponseBody
 	public Object list(@RequestParam Map<String, Object> map,HttpServletRequest request) {
@@ -61,7 +61,7 @@ public class CommentController {
 			e.printStackTrace();
 			return JSONUtils.getJSON(Constants.CODE_NUMBER_500,e.toString(),"系统错误");
 		}
-	}
+	}  
 	
 	
 
