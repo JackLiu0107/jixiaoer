@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.jxe.dao.IUserDao" >
+	<!-- 用户注册信息 -->
+	<insert id="save">
+	insert into `User` (phone,password,username,head,status,create_time,platform,token) 
+	VALUE(#{phone},#{password},#{name},#{head},1,SYSDATE(),#{platform},#{token})
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer"> 
+	      	SELECT LAST_INSERT_ID() as id
+	     </selectKey>
+	</insert>
+	
+	<insert id="saveLicense">
+		insert into License_plate (user_id,license,create_time,status)VALUE(#{id},#{carnumplate},SYSDATE(),1)
+	</insert>
+	
+	<!-- 用户登陆-->
+	<select id="login" resultType="map">
+		select id,phone,username as name,head from `User` where phone=#{phone} and password=#{password}
+	</select>
+	
+	<!-- 用户登陆-->
+	<select id="finduser" resultType="Integer">
+		select count(id) from `User` where phone=#{phone}
+	</select>
+	
+	<!-- 找回密码 -->
+  	<update id="retrieve">
+  		UPDATE User
+  		<set>
+  			password = #{password}
+  		</set>
+  		WHERE phone = #{phone}
+  		AND status = 1
+  	</update>
+  	
+  	<!-- 修改密码 -->
+  	<update id="updpwd">
+  		UPDATE User
+  		<set>
+  			password = #{newPwd}
+  		</set>
+  		WHERE status = 1
+  		AND password = #{oldPwd} 
+  		AND id = #{userId}
+  	</update>
+  	
+  	<update id="update">
+  		UPDATE User
+  		<set>
+  			<if test="username">username = #{name},</if>
+  			<if test="head">head = #{head}</if>
+  		</set>
+  		WHERE status = 1
+  		AND id = #{userId}
+  	</update>
+</mapper>

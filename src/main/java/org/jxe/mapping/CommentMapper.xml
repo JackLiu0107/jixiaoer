@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.jxe.dao.ICommentDao" >
+	<!-- 用户注册信息 -->
+	<insert id="save">
+	insert into `Comment` (factory_id,user_id,order_form_id,content,create_time,status,integral) 
+	VALUE(#{factoryId},#{userId},#{orderFormId},#{content},SYSDATE(),1,#{integral})
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer"> 
+	      	SELECT LAST_INSERT_ID() as id
+	     </selectKey>
+	</insert>
+	<!-- 评论列表-->
+	<select id="findlist" resultType="map">
+		select id,factory_id,user_id,order_form_id,content,create_time,status,integral from `Comment` where factory_id=#{factoryId} 
+	</select>
+	<!-- 评论列表-->
+	<select id="list" resultType="map">
+		select c.id,c.factory_id,c.user_id,c.order_form_id,c.content,c.create_time,c.status,c.integral,u.head,u.phone,u.username from `Comment` c left JOIN `User` u on c.user_id=u.id
+		<where>
+		    <if test="factoryId != null"> factory_id = #{factoryId} </if> 
+		    <if test="orderFormId != null"> and order_form_id = #{orderFormId} </if> 
+		</where>
+	</select>
+	<!-- 评论附件-->
+	<select id="commentimg" resultType="map">
+		select id,
+		user_id as userId,
+		path,
+		create_time
+		from Comment_img  
+		<where>
+		    comment_id=#{commentId}
+		</where>
+	</select>
+	
+</mapper>

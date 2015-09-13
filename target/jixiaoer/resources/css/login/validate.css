@@ -1,0 +1,115 @@
+html{
+	font-family: "microsoft yahei",arial;
+	font-size: 100%;
+}
+body{
+	margin:0;padding:0;
+	font-size:16px;
+	background-color: #f2f2f2;
+}
+body > div > ul{
+	list-style: none;
+}
+/** 手机样式  */
+@media screen and (max-width:600px) {
+	body > div:nth-child(1){
+		text-align: center;
+		font-size: 1.4em;
+		color:red;
+	}
+	body > div:nth-child(1) > ul{
+		padding:0;
+	}
+	body > div:nth-child(2){
+		background-color: white;
+		margin-top:20px;
+	}
+	body > div:nth-child(2) > ul{
+		padding:0;
+		margin:0 auto;
+		display: table;
+		margin-bottom: 10px;
+		padding-bottom:10px;
+		border-bottom:1px solid rgb(207, 239, 252);
+	}
+	body > div:nth-child(2) > ul{
+		width:100%;
+	}
+	body > div:nth-child(2) > ul:first-child{
+		padding-top:10px;
+	}
+	body > div:nth-child(2) > ul:last-child{
+		border-bottom:none;
+	}
+	body > div:nth-child(2) > ul > li{
+		float:left;
+	}
+	body > div:nth-child(2) > ul > li:nth-child(1){
+		width:24%;
+		text-align: right;
+		padding-right: 5px;
+		
+	}
+	body > div:nth-child(2) > ul:nth-child(1) > li:nth-child(2){
+		width:60%;
+	}
+	body > div:nth-child(2) > ul:nth-child(1) > li:nth-child(2) > input{
+		width:100%;
+		height:20px;
+		padding-left:10px;
+		font-family: "microsoft yahei",arial;
+		font-size: 100%;
+		border:none;
+		border-left:1px solid skyblue;
+	}
+	body > div:nth-child(2) > ul:nth-child(1) > li:nth-child(3) > img{
+		width: 1.2em;
+		height: 1.2em;
+		margin: 0.1em 0 0 90%;
+		border-radius:0.9em;
+		-moz-border-radius:0.9em;
+		-webkit-border-radius:0.9em;
+	}
+	
+
+	
+	
+	/** 协议 */
+	body > div:nth-child(3) {
+		wdith:100%;
+		margin-top: 1em;
+	}
+	body > div:nth-child(3) > ul > li{
+		wdith:100%;
+		text-align: right;
+		padding-right:1em;
+	}
+	body > div:nth-child(3) > ul > li > span{
+		text-decoration: none;
+		color:#00baff;
+		cursor:pointer;
+	}
+	/** 按钮样式 */
+	body > div:nth-child(4) {
+		wdith:100%;
+		background-color: #f2f2f2;
+		margin-top: 2em;
+	}
+	body > div:nth-child(4) > ul {
+		width:80%;
+		padding:0;
+		margin:0 auto;
+	}
+	body > div:nth-child(4) > ul > li > input{
+		width: 100%;
+		height: 3em;
+		border:0.3em solid #2CBBEF;
+		border-radius:0.3em;
+		-moz-border-radius:0.3em;
+		-webkit-border-radius:0.3em;
+		background-color:#00baff;
+		font-family: "microsoft yahei",arial;
+		font-size: 100%;
+		color:white;
+	}
+}

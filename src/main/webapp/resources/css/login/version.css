@@ -1,0 +1,60 @@
+html{
+	font-family: "microsoft yahei",arial;
+	font-size: 100%;
+}
+body{
+	margin:0;padding:0;
+	font-size:16px;
+	background-color: #f2f2f2;
+}
+body > div > ul{
+	list-style: none;
+}
+/** 手机样式  */
+@media screen and (max-width:600px) {
+	body > div:nth-child(1){
+		margin-top:2em;
+		text-align: center;
+		font-size: 1.4em;
+	}
+	body > div:nth-child(1) > ul{
+		padding:0;
+	}
+	body > div:nth-child(2) > ul{
+		margin-top:3em;
+		text-align:center;
+		padding:0;
+	}
+	body > div:nth-child(3){
+		width:80%;
+		margin:0 auto;
+	}
+	body > div:nth-child(3) > div{
+		width:100%;
+		margin:0 auto;
+	}
+	
+	body > div:nth-child(3) > div > dl{
+		width:75%;
+		margin:0 auto;
+	}
+	body > div:nth-child(3) > div > dl > dt{
+		width:65%;
+		padding:0.3em 0.3em 0 0.3em;
+		margin:0 auto;
+		background-color: #00baff;
+		border-radius:0.3em;
+		-moz-border-radius:0.3em;
+		-webkit-border-radius:0.3em;
+	}
+	
+	body > div:nth-child(3) > div > dl > dt img{
+		width:100%;
+	}
+	
+	body > div:nth-child(3) > div > dl > dd{
+		width:65%;
+		margin:0 auto;
+		text-align: center;
+	}
+}
