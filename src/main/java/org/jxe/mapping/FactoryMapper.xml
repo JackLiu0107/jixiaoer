@@ -8,7 +8,7 @@
 		name,
 		phone,
 		telephone,
-		create_time,longitude,latitude,integral,address 
+		create_time,longitude,latitude,integral,address,introduce,discount,nature
 		from Factory  
 		<where>
 		    <if test="longitude != null"> longitude = #{longitude} </if>
@@ -32,7 +32,7 @@
 		name,
 		phone,
 		telephone,
-		create_time,longitude,latitude,integral,address 
+		create_time,longitude,latitude,integral,address,introduce,discount,nature
 		from Factory  
 		<where>
 		    phone=#{phone} and password=#{password}
@@ -76,7 +76,7 @@
 		name,
 		phone,
 		telephone,
-		create_time,longitude,latitude,integral,address 
+		create_time,longitude,latitude,integral,address,introduce,discount,nature
 		from Factory  
 		<where>
 		    factory_id=#{id}

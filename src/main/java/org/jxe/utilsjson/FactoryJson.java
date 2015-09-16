@@ -18,6 +18,10 @@ public class FactoryJson {
 		obj.put("latitude", map.get("latitude"));
 		obj.put("integral", map.get("integral"));
 		obj.put("address", map.get("address"));
+		obj.put("introduce", map.get("introduce"));
+		obj.put("discount", map.get("discount"));
+		obj.put("nature", map.get("nature"));
+		
 		return obj;
 	}
 	
@@ -39,6 +43,9 @@ public class FactoryJson {
 		obj.put("status", map.get("status"));
 		obj.put("integral", map.get("integral"));
 		obj.put("price", map.get("price"));
+		obj.put("introduce", map.get("introduce"));
+		obj.put("discount", map.get("discount"));
+		obj.put("nature", map.get("nature"));
 		return obj;
 	}
 	

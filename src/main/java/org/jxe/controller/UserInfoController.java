@@ -148,6 +148,19 @@ public class UserInfoController {
         return null;
 	}
 	
+	@RequestMapping(value="/uploaduser", method=RequestMethod.POST)
+	@ResponseBody
+	public JSONObject uploadPhotoUser(@RequestParam("annex") MultipartFile imgFile, HttpServletRequest request){
+		 String FILE_PATH = "/upload/";
+         try {
+        	 PhotoReadFileUtil.uploadFile(imgFile, request, FILE_PATH);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+        return null;
+	}
+	
+	
 	
 	
 
