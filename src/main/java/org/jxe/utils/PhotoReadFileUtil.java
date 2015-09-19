@@ -7,8 +7,10 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.alibaba.druid.support.logging.Log;
 import com.alibaba.fastjson.JSONObject;
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
@@ -142,14 +144,16 @@ public class PhotoReadFileUtil {
 	public static String uploadFile(MultipartFile file, HttpServletRequest request,String FILE_PATH) throws IOException {  
         String fileName = file.getOriginalFilename();  
         File tempFile = new File(FILE_PATH, new Date().getTime() + String.valueOf(fileName));  
+        //FileUtils.copyFile(file, tempFile);
+        //FileUtils.copyInputStreamToFile(file.getInputStream(), tempFile);
         if (!tempFile.getParentFile().exists()) {  
-            tempFile.getParentFile().mkdir();  
+            tempFile.getParentFile().mkdir(); 
         }  
         if (!tempFile.exists()) {  
             tempFile.createNewFile();  
         }  
         file.transferTo(tempFile);  
-        return tempFile.getName();  
+        return tempFile.getPath();  
     }  
 
 }

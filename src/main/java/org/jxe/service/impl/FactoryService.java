@@ -14,6 +14,8 @@ import org.jxe.utils.Pages;
 import org.jxe.utilsjson.FactoryJson;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSONArray;
+
 
 @Service("IFactoryService")
 public class FactoryService implements IFactoryService {
@@ -29,7 +31,13 @@ public class FactoryService implements IFactoryService {
 	public Object findpage(Map<String, Object> map, HttpServletRequest request) throws Exception{
 		map=Pages.setPage(map);
 		List<Map<String, Object>> list=iFactoryDao.findpage(map);
-		return JSONUtils.getJSON(Constants.CODE_NUMBER_200,FactoryJson.findpagelist(list) ,"");
+		JSONArray arr=new JSONArray();
+		for (Map<String, Object> maps : list) {
+			List<Map<String, Object>> img=iFactoryDao.factoryimg(maps);
+			arr.add(FactoryJson.findpage(map,img));
+		}
+		//return arr;
+		return JSONUtils.getJSON(Constants.CODE_NUMBER_200,arr,"");
 	}
 	
 	/**
@@ -42,7 +50,7 @@ public class FactoryService implements IFactoryService {
 	
 	public Object login(Map<String, Object> map, HttpServletRequest request) throws Exception{
 		Map<String, Object> users=iFactoryDao.login(map);
-		return JSONUtils.getJSON(Constants.CODE_NUMBER_200,FactoryJson.findpage(users),"");
+		return JSONUtils.getJSON(Constants.CODE_NUMBER_200,FactoryJson.findpage(users,null),"");
 	}
 	
 	public Object orderFactory(Map<String, Object> map, HttpServletRequest request) throws Exception{

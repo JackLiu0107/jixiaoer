@@ -85,10 +85,8 @@
 	
 	<!-- 修理厂附件-->
 	<select id="factoryimg" resultType="map">
-		select id,
-		user_id as userId,
-		path,
-		create_time
+		select 
+		path
 		from Factory  
 		<where>
 		    factory_id=#{id}

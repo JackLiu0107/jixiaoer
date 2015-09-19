@@ -150,14 +150,15 @@ public class UserInfoController {
 	
 	@RequestMapping(value="/uploaduser", method=RequestMethod.POST)
 	@ResponseBody
-	public JSONObject uploadPhotoUser(@RequestParam("annex") MultipartFile imgFile, HttpServletRequest request){
-		 String FILE_PATH = "/upload/";
+	public String uploadPhotoUser(@RequestParam("annex") MultipartFile imgFile, HttpServletRequest request){
+		 String FILE_PATH = request.getSession().getServletContext().getRealPath("/") + "/upload/";
+		 String path="";
          try {
-        	 PhotoReadFileUtil.uploadFile(imgFile, request, FILE_PATH);
+        	  path=PhotoReadFileUtil.uploadFile(imgFile, request, FILE_PATH);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-        return null;
+        return path;
 	}
 	
 	

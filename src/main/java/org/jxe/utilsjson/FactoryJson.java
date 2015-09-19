@@ -8,7 +8,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public class FactoryJson {
 	
-	public static JSONObject findpage(Map<String, Object> map){
+	public static JSONObject findpage(Map<String, Object> map,List list){
 		JSONObject obj=new JSONObject();
 		obj.put("name", map.get("name"));
 		obj.put("id", map.get("id"));
@@ -21,17 +21,11 @@ public class FactoryJson {
 		obj.put("introduce", map.get("introduce"));
 		obj.put("discount", map.get("discount"));
 		obj.put("nature", map.get("nature"));
-		
+		obj.put("path", list);
 		return obj;
 	}
 	
-	public static JSONArray findpagelist(List<Map<String, Object>> list){
-		JSONArray arr=new JSONArray();
-		for (Map<String, Object> map : list) {
-			arr.add(findpage(map));
-		}
-		return arr;
-	}
+	
 	
 	public static JSONObject orderFactory(Map<String, Object> map){
 		JSONObject obj=new JSONObject();
