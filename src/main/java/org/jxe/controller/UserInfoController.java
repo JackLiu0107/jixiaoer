@@ -79,7 +79,8 @@ public class UserInfoController {
 	@Transactional
 	public Object updateUserInfo(@RequestParam Map<String, Object> map,HttpServletRequest request) {
 		try {
-			return iUserService.update(map, request);
+			iUserService.update(map, request);
+			return JSONUtils.getJSON(Constants.CODE_NUMBER_200,"","成功");
 		} catch (Exception e) {
 			e.getStackTrace();
 			return JSONUtils.getJSON(Constants.CODE_NUMBER_500,"","失败");
@@ -150,15 +151,15 @@ public class UserInfoController {
 	
 	@RequestMapping(value="/uploaduser", method=RequestMethod.POST)
 	@ResponseBody
-	public String uploadPhotoUser(@RequestParam("annex") MultipartFile imgFile, HttpServletRequest request){
+	public JSONObject uploadPhotoUser(@RequestParam("annex") MultipartFile imgFile, HttpServletRequest request){
 		 String FILE_PATH = request.getSession().getServletContext().getRealPath("/") + "/upload/";
-		 String path="";
+		 JSONObject json=null;
          try {
-        	  path=PhotoReadFileUtil.uploadFile(imgFile, request, FILE_PATH);
+        	  json=PhotoReadFileUtil.uploadFile(imgFile, request, FILE_PATH);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-        return path;
+         return	JSONUtils.getJSON(Constants.CODE_NUMBER_200, json ,"上传成功");
 	}
 	
 	

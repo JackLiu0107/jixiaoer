@@ -11,15 +11,16 @@
 	</insert>
 	<!-- 评论列表-->
 	<select id="findlist" resultType="map">
-		select id,factory_id,user_id,order_form_id,content,create_time,status,integral from `Comment` where factory_id=#{factoryId} 
+		select id,factory_id,user_id,order_form_id,content,create_time,status,integral,u.head,u.phone,u.username from `Comment` c left JOIN `User` u on c.user_id=u.id where factory_id=#{factoryId} LIMIT #{page},#{size} 
 	</select>
 	<!-- 评论列表-->
 	<select id="list" resultType="map">
 		select c.id,c.factory_id,c.user_id,c.order_form_id,c.content,c.create_time,c.status,c.integral,u.head,u.phone,u.username from `Comment` c left JOIN `User` u on c.user_id=u.id
 		<where>
-		    <if test="factoryId != null"> factory_id = #{factoryId} </if> 
-		    <if test="orderFormId != null"> and order_form_id = #{orderFormId} </if> 
+		    <if test="factoryId != null"> factory_id = ${factoryId} </if> 
+		    <if test="orderFormId != null"> and order_form_id = ${orderFormId} </if> 
 		</where>
+		LIMIT ${page},${size}
 	</select>
 	<!-- 评论附件-->
 	<select id="commentimg" resultType="map">

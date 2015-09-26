@@ -56,6 +56,12 @@ public class CommentController {
 	@ResponseBody
 	public Object list(@RequestParam Map<String, Object> map,HttpServletRequest request) {
 		try {
+			if(map.get("page")!=null){
+				map.put("page", Integer.parseInt(map.get("page").toString()));
+			}
+			if(map.get("szie")!=null){
+				map.put("szie", Integer.parseInt(map.get("szie").toString()));
+			}
 			return iCommentService.list(map, request);
 		} catch (Exception e) {
 			e.printStackTrace();

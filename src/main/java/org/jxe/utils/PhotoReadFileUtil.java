@@ -141,7 +141,7 @@ public class PhotoReadFileUtil {
         return json;
     }
 	
-	public static String uploadFile(MultipartFile file, HttpServletRequest request,String FILE_PATH) throws IOException {  
+	public static JSONObject uploadFile(MultipartFile file, HttpServletRequest request,String FILE_PATH) throws IOException {  
         String fileName = file.getOriginalFilename();  
         File tempFile = new File(FILE_PATH, new Date().getTime() + String.valueOf(fileName));  
         //FileUtils.copyFile(file, tempFile);
@@ -153,7 +153,10 @@ public class PhotoReadFileUtil {
             tempFile.createNewFile();  
         }  
         file.transferTo(tempFile);  
-        return tempFile.getPath();  
+        JSONObject json = new JSONObject();
+        json.put("key", tempFile.getPath());
+        return json;
+        //return tempFile.getPath();  
     }  
 
 }

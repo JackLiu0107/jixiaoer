@@ -59,7 +59,7 @@ public class FactoryService implements IFactoryService {
 	}
 	public Object detailed(Map<String, Object> map, HttpServletRequest request) throws Exception{
 		Map<String, Object> detailed=iFactoryDao.detailed(map);
-		detailed.put("images", iFactoryDao.factoryimg(map));
+		detailed.put("path", iFactoryDao.factoryimg(map));
 		return JSONUtils.getJSON(Constants.CODE_NUMBER_200,detailed,"");
 	}
 	

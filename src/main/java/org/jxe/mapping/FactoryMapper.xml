@@ -79,7 +79,7 @@
 		create_time,longitude,latitude,integral,address,introduce,discount,nature
 		from Factory  
 		<where>
-		    factory_id=#{id}
+		    id=#{id}
 		</where>
 	</select>
 	
@@ -87,7 +87,7 @@
 	<select id="factoryimg" resultType="map">
 		select 
 		path
-		from Factory  
+		from Factory_img 
 		<where>
 		    factory_id=#{id}
 		</where>
