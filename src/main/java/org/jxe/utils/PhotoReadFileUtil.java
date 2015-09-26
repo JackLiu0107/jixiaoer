@@ -154,7 +154,7 @@ public class PhotoReadFileUtil {
         }  
         file.transferTo(tempFile);  
         JSONObject json = new JSONObject();
-        json.put("key", tempFile.getPath());
+        json.put("path", "/upload/"+tempFile.getName());
         return json;
         //return tempFile.getPath();  
     }  

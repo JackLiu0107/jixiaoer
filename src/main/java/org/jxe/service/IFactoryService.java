@@ -11,4 +11,6 @@ public interface IFactoryService {
 	public Object orderFactory(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	public Object detailed(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	public Object orderforUser(Map<String, Object> map, HttpServletRequest request) throws Exception;
+	public Object findpageOrder(Map<String, Object> map, HttpServletRequest request) throws Exception;
+	
 }

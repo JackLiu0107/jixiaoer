@@ -34,7 +34,7 @@ public class FactoryService implements IFactoryService {
 		JSONArray arr=new JSONArray();
 		for (Map<String, Object> maps : list) {
 			List<Map<String, Object>> img=iFactoryDao.factoryimg(maps);
-			arr.add(FactoryJson.findpage(map,img));
+			arr.add(FactoryJson.findpage(maps,img));
 		}
 		//return arr;
 		return JSONUtils.getJSON(Constants.CODE_NUMBER_200,arr,"");
@@ -66,6 +66,20 @@ public class FactoryService implements IFactoryService {
 	public Object orderforUser(Map<String, Object> map, HttpServletRequest request) throws Exception{
 		List<Map<String, Object>> list=iFactoryDao.orderforUser(map);
 		return JSONUtils.getJSON(Constants.CODE_NUMBER_200,FactoryJson.orderFactoryList(list),"成功");
+	}
+
+	@Override
+	public Object findpageOrder(Map<String, Object> map,
+			HttpServletRequest request) throws Exception {
+		map=Pages.setPage(map);
+		List<Map<String, Object>> list=iFactoryDao.findpage(map);
+		JSONArray arr=new JSONArray();
+		for (Map<String, Object> maps : list) {
+			List<Map<String, Object>> img=iFactoryDao.factoryimg(maps);
+			arr.add(FactoryJson.findpage(maps,img));
+		}
+		//return arr;
+		return JSONUtils.getJSON(Constants.CODE_NUMBER_200,arr,"");
 	}
 	
 	

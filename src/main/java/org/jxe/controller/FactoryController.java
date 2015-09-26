@@ -46,6 +46,30 @@ public class FactoryController {
 	
 	/**
 	 * 
+	* @Title: findpageOrder
+	* @Package org.jxe.controller 
+	* @Description: TODO(用一句话描述该文件做什么) 
+	* @author liuy
+	* @date 2015年7月30日 下午5:15:12 
+	* @param map
+	* @param request
+	* @return
+	 */
+	@RequestMapping(value="/findpageOrder", method=RequestMethod.POST)
+	@ResponseBody
+	public Object findpageOrder(@RequestParam Map<String, Object> map, HttpServletRequest request) {
+		try {
+			return iFactoryService.findpageOrder(map, request);
+		} catch (Exception e) {
+			e.getStackTrace();
+			return JSONUtils.getJSON(Constants.CODE_NUMBER_500,e.toString(),"系统错误");
+		}
+	}
+	
+	
+	
+	/**
+	 * 
 	* @Title: saveOrderForm
 	* @Package org.jxe.controller 
 	* @Description: TODO(用一句话描述该文件做什么) 

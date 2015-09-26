@@ -20,4 +20,6 @@ public interface IFactoryDao {
 	public Map<String, Object> detailed(Map<String, Object> map) throws Exception;
 	public List<Map<String, Object>> orderforUser(Map<String, Object> map) throws Exception;
 	public List<Map<String, Object>> factoryimg(Map<String, Object> map) throws Exception;
+	public List<Map<String, Object>> findpageOrder(Map<String, Object> map) throws Exception;
+	
 }

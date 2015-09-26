@@ -17,6 +17,21 @@
 		LIMIT #{page},#{size}
 	</select>
 	
+	<!-- 修理厂数据-->
+	<select id="findpageOrder" resultType="map">
+		select id,
+		name,
+		phone,
+		telephone,
+		create_time,longitude,latitude,integral,address,introduce,discount,nature
+		from Factory  
+		<where>
+		    <if test="longitude != null"> longitude = #{longitude} </if>
+		     <if test="latitude != null">and latitude = #{latitude} </if>
+		</where>
+		order by integral desc LIMIT #{page},#{size}
+	</select>
+	
 	<!-- 预约-->
 	<insert id="saveOrderForm">
 	insert into `Order_form` (factory_id,user_id,status,create_time) 

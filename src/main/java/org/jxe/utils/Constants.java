@@ -35,4 +35,7 @@ public class Constants {
 	 */
 	public static final int CODE_NUMBER_500=500;
 	
+	
+	public static final String url="http://jxe.luodicare.com/";
+	
 }
