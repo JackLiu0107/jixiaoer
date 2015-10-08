@@ -8,7 +8,7 @@
 <% String url1= request.getSession().getServletContext().getRealPath("/");; %>
 </head>  
 <body>  
-<form action="/user/uploaduser" method="post" enctype="multipart/form-data">  
+<form action="<%=url %>/user/uploaduser" method="post" enctype="multipart/form-data">  
 <div><%=url1 %></div>
 <input type="file" name="annex" /> <input type="submit" value="Submit" /></form>  
 </body>  

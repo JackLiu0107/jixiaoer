@@ -177,6 +177,29 @@ public class FactoryController {
 		}
 	}
 	
+	/**
+	 * 我的订单
+	* @Title: orderforUser
+	* @Package org.jxe.controller 
+	* @Description: TODO(用一句话描述该文件做什么) 
+	* @author liuy
+	* @date 2015年8月25日 下午10:03:54 
+	* @param map
+	* @param request
+	* @return
+	 */
+	@RequestMapping(value="/orderstatus", method=RequestMethod.POST)
+	@ResponseBody
+	public Object orderstatus(@RequestParam Map<String, Object> map, HttpServletRequest request) {
+		try {
+			//return iFactoryService.orderforUser(map, request);
+			return 1;
+		} catch (Exception e) {
+			e.getStackTrace();
+			return JSONUtils.getJSON(Constants.CODE_NUMBER_500,e.toString(),"系统错误");
+		}
+	}
+	
 	 
 	
 
