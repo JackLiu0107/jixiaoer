@@ -63,8 +63,12 @@
 		u.head as head,
 		o.`status` as status,
 		o.integral as integral,
-		o.price as price
+		o.price as price,
+		f.introduce,
+		f.discount,
+		f.nature
 		from Order_form o LEFT JOIN `User` u on o.user_id=u.id 
+		left join Factory f  on f.id=o.factory_id 
 		<where>
 		    o.factory_id=#{id}
 		</where>
@@ -78,8 +82,12 @@
 		u.head as head,
 		o.`status` as status,
 		o.integral as integral,
-		o.price as price
-		from Order_form o LEFT JOIN `User` u on o.user_id=u.id 
+		o.price as price,
+		f.introduce,
+		f.discount,
+		f.nature
+		from Order_form o LEFT JOIN `User`  u on o.user_id=u.id 
+		left join Factory f  on f.id=o.factory_id 
 		<where>
 		    o.user_id=#{userId}
 		</where>
@@ -107,5 +115,32 @@
 		    factory_id=#{id}
 		</where>
 	</select>
+	
+	<update id="ordersumit">
+  		UPDATE Order_form
+  		<set>
+  			status =3
+  		</set>
+  		WHERE id = #{orderId}
+  		
+  	</update>
+  	
+	<update id="updorder">
+  		UPDATE Order_form
+  		<set>
+  			status =#{status}
+  		</set>
+  		WHERE id = #{orderId}
+  		
+  	</update>
+  	
+	<update id="updorderprice">
+  		UPDATE Order_form
+  		<set>
+  			price =#{price}
+  		</set>
+  		WHERE id = #{orderId}
+  		and factory_id=#{id}
+  	</update>
 
 </mapper>

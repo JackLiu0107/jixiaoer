@@ -21,5 +21,8 @@ public interface IFactoryDao {
 	public List<Map<String, Object>> orderforUser(Map<String, Object> map) throws Exception;
 	public List<Map<String, Object>> factoryimg(Map<String, Object> map) throws Exception;
 	public List<Map<String, Object>> findpageOrder(Map<String, Object> map) throws Exception;
+	public Integer ordersumit(Map<String, Object> map) throws Exception;
+	public Integer updorder(Map<String, Object> map) throws Exception;
+	public Integer updorderprice(Map<String, Object> map) throws Exception;
 	
 }

@@ -127,7 +127,31 @@ public class FactoryController {
 	@ResponseBody
 	public Object updorder(@RequestParam Map<String, Object> map, HttpServletRequest request) {
 		try {
-			return null;//iFactoryService.updorder(map, request);
+			iFactoryService.updorder(map, request);
+			return JSONUtils.getJSON(Constants.CODE_NUMBER_200,1,"成功");
+		} catch (Exception e) {
+			e.getStackTrace();
+			return JSONUtils.getJSON(Constants.CODE_NUMBER_500,e.toString(),"系统错误");
+		}
+	}
+	
+	@RequestMapping(value="/ordersumit", method=RequestMethod.POST)
+	@ResponseBody
+	public Object ordersumit(@RequestParam Map<String, Object> map, HttpServletRequest request) {
+		try {
+			iFactoryService.ordersumit(map, request);
+			return JSONUtils.getJSON(Constants.CODE_NUMBER_200,1,"成功");
+		} catch (Exception e) {
+			e.getStackTrace();
+			return JSONUtils.getJSON(Constants.CODE_NUMBER_500,e.toString(),"系统错误");
+		}
+	}
+	@RequestMapping(value="/updorderprice", method=RequestMethod.POST)
+	@ResponseBody
+	public Object updorderprice(@RequestParam Map<String, Object> map, HttpServletRequest request) {
+		try {
+			iFactoryService.updorderprice(map, request);
+			return JSONUtils.getJSON(Constants.CODE_NUMBER_200,1,"成功");
 		} catch (Exception e) {
 			e.getStackTrace();
 			return JSONUtils.getJSON(Constants.CODE_NUMBER_500,e.toString(),"系统错误");

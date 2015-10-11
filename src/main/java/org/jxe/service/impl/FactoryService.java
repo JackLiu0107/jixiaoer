@@ -82,6 +82,16 @@ public class FactoryService implements IFactoryService {
 		return JSONUtils.getJSON(Constants.CODE_NUMBER_200,arr,"");
 	}
 	
+	public Object ordersumit(Map<String, Object> map,HttpServletRequest request) throws Exception{
+		return iFactoryDao.ordersumit(map);
+	}
+	public Object updorder(Map<String, Object> map,HttpServletRequest request) throws Exception{
+		return iFactoryDao.updorder(map);
+	}
+	public Object updorderprice(Map<String, Object> map,HttpServletRequest request) throws Exception{
+		return iFactoryDao.updorderprice(map);
+	}
+	
 	
 	
 	

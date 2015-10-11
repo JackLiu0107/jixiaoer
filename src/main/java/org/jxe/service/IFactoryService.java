@@ -12,5 +12,7 @@ public interface IFactoryService {
 	public Object detailed(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	public Object orderforUser(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	public Object findpageOrder(Map<String, Object> map, HttpServletRequest request) throws Exception;
-	
+	public Object ordersumit(Map<String, Object> map,HttpServletRequest request) throws Exception;
+	public Object updorder(Map<String, Object> map,HttpServletRequest request) throws Exception;
+	public Object updorderprice(Map<String, Object> map,HttpServletRequest request) throws Exception;
 }
