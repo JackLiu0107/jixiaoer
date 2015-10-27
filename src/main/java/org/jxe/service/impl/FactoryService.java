@@ -50,7 +50,12 @@ public class FactoryService implements IFactoryService {
 	
 	public Object login(Map<String, Object> map, HttpServletRequest request) throws Exception{
 		Map<String, Object> users=iFactoryDao.login(map);
-		return JSONUtils.getJSON(Constants.CODE_NUMBER_200,FactoryJson.findpage(users,null),"");
+		if(users != null){
+			return JSONUtils.getJSON(Constants.CODE_NUMBER_200,FactoryJson.findpage(users,null),"");
+		}else{
+			return JSONUtils.getJSON(Constants.CODE_NUMBER_300,"","用户或者密码不正确");	
+		}
+		
 	}
 	
 	public Object orderFactory(Map<String, Object> map, HttpServletRequest request) throws Exception{
